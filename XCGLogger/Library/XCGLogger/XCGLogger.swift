@@ -81,7 +81,7 @@ public class XCGConsoleLogDestination : XCGLogDestinationProtocol, CustomDebugSt
             formattedDate = dateFormatter.stringFromDate(logDetails.date)
         }
 
-        var fullLogMessage: String =  "\(formattedDate) \(extendedDetails)\(logDetails.functionName): \(logDetails.logMessage)\n"
+        let fullLogMessage: String =  "\(formattedDate) \(extendedDetails)\(logDetails.functionName): \(logDetails.logMessage)\n"
 
         dispatch_async(XCGLogger.logQueue) {
             print(fullLogMessage, appendNewline: false)
@@ -225,7 +225,7 @@ public class XCGFileLogDestination : XCGLogDestinationProtocol, CustomDebugStrin
                 var fileError : NSError? = nil
                 do {
                     logFileHandle = try NSFileHandle(forWritingToURL: writeToFileURL)
-                } catch var error as NSError {
+                } catch let error as NSError {
                     fileError = error
                     logFileHandle = nil
                 }
