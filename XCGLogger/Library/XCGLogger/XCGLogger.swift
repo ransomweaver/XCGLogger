@@ -70,7 +70,7 @@ public class XCGConsoleLogDestination : XCGLogDestinationProtocol, CustomDebugSt
         }
 
         if showFileName {
-            extendedDetails += "[" + logDetails.fileName.lastPathComponent + (showLineNumber ? ":" + String(logDetails.lineNumber) : "") + "] "
+            extendedDetails += "[" + (logDetails.fileName as NSString).lastPathComponent + (showLineNumber ? ":" + String(logDetails.lineNumber) : "") + "] "
         }
         else if showLineNumber {
             extendedDetails += "[" + String(logDetails.lineNumber) + "] "
@@ -173,7 +173,7 @@ public class XCGFileLogDestination : XCGLogDestinationProtocol, CustomDebugStrin
         }
 
         if showFileName {
-            extendedDetails += "[" + logDetails.fileName.lastPathComponent + (showLineNumber ? ":" + String(logDetails.lineNumber) : "") + "] "
+            extendedDetails += "[" + (logDetails.fileName as NSString).lastPathComponent + (showLineNumber ? ":" + String(logDetails.lineNumber) : "") + "] "
         }
         else if showLineNumber {
             extendedDetails += "[" + String(logDetails.lineNumber) + "] "
